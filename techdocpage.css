@@ -1,0 +1,46 @@
+body {
+	font-family: Helvetica, Courier, sans-serif, Calibri;
+	background-color: #F7E3E3;
+}
+
+
+#fixed-bar { 
+	position: fixed;
+	top: 0; left: 0; right: 0;
+	padding:25px;
+	background: #000;
+	z-index: 2;
+}
+
+#nav-div {
+	position: fixed;
+	display: block;
+	float: left;
+	top: 50px; bottom: 0; left: 0; 
+	font-size: 16px;
+	border-right-style: solid;
+	border-width: 10px;
+	padding: 10px 30px 30px 20px;
+	overflow: auto;
+	z-index: 2;
+}
+
+nav header { font-size: 20px; }
+
+nav a { text-decoration: none; color: inherit;}
+
+#sections-div {
+	display: block;
+	position: relative;
+	top: 42px; right: 0;
+	font-size: 18px;
+	margin-left: 270px;
+	padding: 15px 40px 15px 25px;
+	overflow-x: auto;
+	z-index: 1;
+}
+
+@media screen(max-width: 400px;) {
+	background-color: transparent;
+}
+
