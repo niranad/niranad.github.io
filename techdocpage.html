@@ -5,30 +5,32 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" type="text/css" href="techdocpage.css" />
 </head>
-<body>
+<body id="body">
 	<div id="fixed-bar"></div>
+
+	<nav id="navbar" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<header>JS Documentation</header><hr />
+		<a href="#introduction" class="nav-link">Introduction</a><hr />
+		<a href="#what_you_should_already_know" class="nav-link">What you should already know</a><hr />
+		<a href="#javascript_and_java" class="nav-link">JavaScript and Java</a><hr />
+		<a href="#hello_world" class="nav-link">Hello world</a><hr />
+		<a href="#variables" class="nav-link">Variables</a><hr />
+		<a href="#declaring_variables" class="nav-link">Declaring variables</a><hr />
+		<a href="#variable_scope" class="nav-link">Variable scope</a><hr />
+		<a href="#global_variables" class="nav-link">Global variables</a><hr />
+		<a href="#constants" class="nav-link">Constants</a><hr />
+		<a href="#data_types" class="nav-link">Data types</a><hr />
+		<a href="#if_else_statement" class="nav-link">if...else statement</a><hr />
+		<a href="#while_statement" class="nav-link">while statement</a><hr />
+		<a href="#function_declarations" class="nav-link">Function declarations</a><hr />
+		<a href="#reference" class="nav-link">Reference</a>
+	</nav>
+		
 	<main id="main-doc">
-		<div id="nav-div">
-			<nav id="navbar">
-				<header>JS Documentation</header><hr />
-				<a href="#introduction" class="nav-link">Introduction</a><hr />
-				<a href="#what_you_should_already_know" class="nav-link">What you should already know</a><hr />
-				<a href="#javascript_and_java" class="nav-link">JavaScript and Java</a><hr />
-				<a href="#hello_world" class="nav-link">Hello world</a><hr />
-				<a href="#variables" class="nav-link">Variables</a><hr />
-				<a href="#declaring_variables" class="nav-link">Declaring variables</a><hr />
-				<a href="#variable_scope" class="nav-link">Variable scope</a><hr />
-				<a href="#global_variables" class="nav-link">Global variables</a><hr />
-				<a href="#constants" class="nav-link">Constants</a><hr />
-				<a href="#data_types" class="nav-link">Data types</a><hr />
-				<a href="#if_else_statement" class="nav-link">if...else statement</a><hr />
-				<a href="#while_statement" class="nav-link">while statement</a><hr />
-				<a href="#function_declarations" class="nav-link">Function declarations</a><hr />
-				<a href="#reference" class="nav-link">Reference</a>
-			</nav>
-		</div>
 
 		<div id="sections-div">
+			<span style="font-size: 20px; cursor: pointer;" onclick="openNav()">&#9776;Menu</span>
 			<section id="introduction" class="main-section">
 				<h2>Introduction</h2>
 				<p>JavaScript is a cross-platform, object-oriented scripting language. It is a small and lightweight language. Inside a host environment (for example, a web browser), JavaScript can be connected to the objects of its environment to provide programmatic control over them.</p>
@@ -226,5 +228,7 @@
 			</section>
 		</div>
 	</main>
+
+	<script type="text/JavaScript" src="techdocpage.js"></script>
 </body>
 </html>
