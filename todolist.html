@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To-do List Web Planner</title>
+	<link rel="stylesheet" href="./todolist.css">
+</head>
+
+<body>
+	<div id="main">
+		<h4 id="message" style="display: none"></h4>
+		<div id="my-todo-container">	
+			<form id="form">
+				<input id="text-input" type="text" placeholder="Please enter a task..." list="common-todos" autocomplete>
+				<datalist id="common-todos">
+					<option value="Hit the gym">
+					<option value="Go to market">
+					<option value="Take some clothes to the laundry">
+					<option value="Brainstorm on a project"></option>
+					<option value="Do some coding">
+					<option value="Attend board meeting"></option>
+					<option value="Attend a group meeting at the office">
+					<option value="Call a friend">
+					<option value="Attend an online meeting">
+					<option value="Buy a birthday present">
+					<option value="Make a schedule for the day">
+					<option value="Send email">
+				</datalist>
+
+				<input id="input-button" type="Submit" value="ADD" onclick="addTodo(event, 'text-input')">
+			</form>
+			<div id="todo-lists-container">
+				<h3>Todos: </h3>
+				<ol id="todos"></ol>
+			</div>
+		</div>
+	</div>		
+
+	<script src="./todolist.js"></script>
+</body>
+
+</html>

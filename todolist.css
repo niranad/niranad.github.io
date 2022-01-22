@@ -1,0 +1,201 @@
+body {
+	font-family: Lucida, calibri, sans-serif;
+	background-image: linear-gradient(mintcream, lightgrey);		
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#main {
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	padding-top: 30px;
+}
+
+#my-todo-container {
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#message {
+	font-size: 22px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	background-color: #ECE647;
+	color: black;
+}
+
+#form {
+	width: 80%;
+}
+
+#text-input {
+	position: relative;
+	margin-left: 0;
+	left: 0;
+	display: inline;
+	font-size: 18px;
+	font-weight: 600;
+	font-style: italic;
+	padding: 14px;
+	width: 80%;
+	border: 1px solid lightgrey;
+	border-radius: 25px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	outline: none;
+}
+
+#text-input:hover, #input-button:hover {
+	box-shadow: 0 2px 8px 4px rgb(173, 205, 250);
+}
+
+#text-input:focus {
+	outline: 1px solid darkblue;
+}
+
+#input-button {
+	position: relative;
+	display: inline;
+	margin-left: -4px;
+	font-size: 18px;
+	color: white;
+	padding: 14px;
+	border: 1px solid transparent;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+	outline: none;
+	background-color: #2043B5;	
+}
+
+h3 {
+	font-size: 30px;
+	padding: 15px;
+	font-weight: 700;
+	text-align: center;
+	color: gray;
+}
+
+#todos {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.deleteBtn {
+	background-color: red;
+	border: none;
+	border-radius: 10px;
+	outline: none;
+	color: black;
+	cursor: pointer;
+	padding: 5px;
+	font-size: 16px;
+	font-weight: 600;
+	margin-left: 10px;
+}
+
+.deleteBtn:hover {
+	transform: scale(1.1);
+}
+
+.todo-item {
+	padding: 15px;
+	background-color: white;
+	font-size: 20px;
+	border-radius: 30px;
+	width: fit-content;
+	height: auto;
+	margin-top: 10px;
+	display: inline;
+}
+
+#todo-lists-container {
+	box-sizing: border-box;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-right: 15px;
+	margin-right: 15px;
+}
+
+@media screen and (max-width: 700px) {
+	#form, #text-input {
+		width: 70%;
+	}
+
+	#text-input, #input-button {
+		padding: 20px;
+	}
+}
+
+@media screen and (max-width: 612px) {
+	#text-input, #input-button {
+		font-size: 15px;
+		margin-bottom: 15px;
+	}
+
+	h3 {
+		font-size: 25px;
+	}
+}
+
+@media screen and (max-width: 565px) {
+	#form {
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 443px) {
+	#text-input, #input-button {
+		border-radius: 12px;
+	}
+}
+
+@media screen and (max-width: 322px) {
+	#form {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	li div > button {
+		display: block;
+		margin-top: 18px;
+	}
+
+	#message {
+		font-size: 15px;
+	}
+
+	#text-input, .todo-item {
+		font-size: 17px;
+		padding: 12px;
+	}
+
+	h3 {
+		font-size: 18px;
+	}
+
+	#text-input {
+		font-size: 14px;
+		border-radius: 15px;
+		width: 70vw;
+
+	}
+
+	#input-button {
+		position: relative;
+		padding: 12px;
+		border-radius: 15px;
+		margin-top: 10px;
+		width: fit-content;
+		text-align: center;
+	}
+}
