@@ -27,12 +27,12 @@ function addTodo(event, todoId) {
 		listItem.style.marginBottom = "40px";
 
 		const div = document.createElement('div');
-		const p = document.createElement('p');
-		p.setAttribute('class', 'todo-item');
+		const todoBox = document.createElement('div');
+		todoBox.setAttribute('class', 'todo-item');
 
 		const todo = document.createTextNode(document.getElementById(todoId).value);
 
-		p.appendChild(todo);
+		todoBox.appendChild(todo);
 
 		const removeBtn = document.createElement('button');
 
@@ -45,7 +45,7 @@ function addTodo(event, todoId) {
 		const remove = document.createTextNode('delete');
 		removeBtn.appendChild(remove);
 
-		div.appendChild(p);
+		div.appendChild(todoBox);
 		div.appendChild(removeBtn);
 
 		listItem.appendChild(div);
