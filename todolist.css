@@ -32,13 +32,13 @@ body {
 }
 
 #form {
-	width: 80%;
+	width: 90%;
+	margin: 0 auto;
 }
 
 #text-input {
 	position: relative;
-	margin-left: 0;
-	left: 0;
+	margin-top: 15px;
 	display: inline;
 	font-size: 18px;
 	font-weight: 600;
@@ -75,8 +75,16 @@ body {
 }
 
 li {
-	padding: 0 15px;
-	margin-left: 15px;
+	box-sizing: border-box;
+	margin: auto;
+	padding-left: 15px;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+li div > div {
+	margin: auto;
+	overflow: auto;
 }
 
 h3 {
@@ -87,14 +95,23 @@ h3 {
 	color: gray;
 }
 
+h5 {
+	margin: 15px 0;
+	padding: 0;
+	font-size: 18px;
+	font-weight: 600;
+	font-style: italic;
+	letter-spacing: 1.2px;
+}
+
 #todos {
 	margin: 0;
 	padding: 0;
 	width: 100%;
 }
 
-.deleteBtn {
-	display: block;
+.delete-btn, .edit-btn {
+	display: inline;
 	background-color: red;
 	border: none;
 	border-radius: 10px;
@@ -109,8 +126,22 @@ h3 {
 	margin-right: auto;
 }
 
-.deleteBtn:hover {
+.delete-btn:hover, .edit-btn:hover {
 	transform: scale(1.1);
+}
+
+.edit-btn {
+	background-color: #305BBB;
+	color: white;
+	margin-right: 6px;
+}
+
+.edit-area {
+	margin-top: 25px;
+	margin-left: auto;
+	margin-right: auto;
+	white-space: wrap;
+	font-size: 17px;
 }
 
 .todo-item {
@@ -127,10 +158,10 @@ h3 {
 
 #todo-lists-container {
 	box-sizing: border-box;
+	width: 80%;
 	padding-left: 15px;
 	padding-right: 15px;
-	margin-right: 15px;
-	margin-left: 15px;
+	margin: auto;
 }
 
 @media screen and (max-width: 700px) {

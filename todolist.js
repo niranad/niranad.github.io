@@ -34,19 +34,57 @@ function addTodo(event, todoId) {
 
 		todoBox.appendChild(todo);
 
-		const removeBtn = document.createElement('button');
+		const textArea = document.createElement('textArea');
+		const textAreaTextNode = document.createTextNode(
+			document.getElementById('text-input').value);
+		textArea.setAttribute('class', 'edit-area');
+		textArea.setAttribute('row', 50);
+		textArea.setAttribute('col', 50);
+		textArea.appendChild(textAreaTextNode);
+		textArea.style.display = "none";
 
-		removeBtn.setAttribute('class', 'deleteBtn');
-		removeBtn.addEventListener('click', function(event) {
-			event.preventDefault();
-			document.getElementById('todos').removeChild(this.parentNode.parentNode);
+		const h5 = document.createElement('h5');
+		const h5TextNode = document.createTextNode('Resize the text area as needed. Press enter to finish edit. ');
+		h5.appendChild(h5TextNode);
+		h5.style.display = "none";
+
+		textArea.appendChild(textAreaTextNode);
+		textArea.addEventListener('keypress', function(event) {
+			if (event.keyCode === 13) {
+				event.preventDefault();
+				this.parentNode.firstChild.innerText = this.value;
+				this.style.display = "none";
+				h5.style.display = "none";
+			}
 		});
 
-		const remove = document.createTextNode('delete');
-		removeBtn.appendChild(remove);
+		const editBtn = document.createElement('button');
+		const editTextNode = document.createTextNode('Edit');
+		editBtn.appendChild(editTextNode);
+		editBtn.setAttribute('class', 'edit-btn');
+		editBtn.addEventListener('click', function(event) {
+			event.preventDefault();
+			textArea.style.display = "block";
+			h5.style.display = "block";
+		});
+
+		const deleteBtn = document.createElement('button');
+
+		deleteBtn.setAttribute('class', 'delete-btn');
+		deleteBtn.addEventListener('click', function(event) {
+			event.preventDefault();
+			document.getElementById('todos').removeChild(
+				this.parentNode.parentNode);
+		});
+
+		const deleteTextNode = document.createTextNode('Remove');
+		deleteBtn.appendChild(deleteTextNode);
 
 		div.appendChild(todoBox);
-		div.appendChild(removeBtn);
+		div.appendChild(editBtn);
+		div.appendChild(deleteBtn);
+		div.appendChild(textArea);
+		div.appendChild(h5);
 
 		listItem.appendChild(div);
 
