@@ -12,7 +12,7 @@ body {
 	text-align: center;
 	width: 100%;
 	height: 100%;
-	padding-top: 30px;
+	padding-top: 15px;
 }
 
 #my-todo-container {
@@ -34,6 +34,7 @@ body {
 #form {
 	width: 90%;
 	margin: 0 auto;
+	margin-top: 15px;
 }
 
 #text-input {
@@ -88,7 +89,7 @@ li div > div {
 }
 
 h3 {
-	font-size: 30px;
+	font-size: 24px;
 	padding: 15px;
 	font-weight: 700;
 	text-align: center;
@@ -98,7 +99,7 @@ h3 {
 h5 {
 	margin: 15px 0;
 	padding: 0;
-	font-size: 18px;
+	font-size: 17px;
 	font-weight: 600;
 	font-style: italic;
 	letter-spacing: 1.2px;
@@ -178,10 +179,6 @@ h5 {
 	#text-input, #input-button {
 		font-size: 15px;
 		margin-bottom: 15px;
-	}
-
-	h3 {
-		font-size: 25px;
 	}
 }
 
