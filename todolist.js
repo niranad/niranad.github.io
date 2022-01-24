@@ -13,10 +13,11 @@ function addTodo(event, todoId) {
 
 		for (let todo of list) {
 			const text = document.getElementById("text-input").value;
-			if (text.trim().split(/\s+/).join(" ").toLowerCase() === todo.innerText.trim().split(/\s+/).join(" ").toLowerCase()) 
+			if (text.trim().split(/\s+/).join(" ").toLowerCase() === 
+				todo.textContent.trim().split(/\s+/).join(" ").toLowerCase()) 
 			{
 				const message = document.getElementById('message');
-				message.innerText = "You already added this task!";
+				message.textContent = "You already added this task!";
 				message.style.display = "block";
 				document.getElementById("text-input").value = "";
 				return;
@@ -52,7 +53,7 @@ function addTodo(event, todoId) {
 		textArea.addEventListener('keypress', function(event) {
 			if (event.keyCode === 13) {
 				event.preventDefault();
-				this.parentNode.firstChild.innerText = this.value;
+				this.parentNode.firstChild.textContent = this.value;
 				this.style.display = "none";
 				h5.style.display = "none";
 			}
@@ -94,7 +95,7 @@ function addTodo(event, todoId) {
 	}
 	else {
 		const message = document.getElementById("message");
-		message.innerHTML = "You have not entered a task to be added";
+		message.textContent = "You have not entered a task to be added";
 		message.style.display = "block";
 	}
 }
