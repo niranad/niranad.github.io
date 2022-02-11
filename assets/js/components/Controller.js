@@ -17,8 +17,6 @@ export default class Controller extends Component {
     const turnMark = document.querySelector("#turn-mark");
     const refreshBtn = document.querySelector("#refresh-btn");
 
-    console.log(game);
-
     if (game.player1 === "X") {
       document.querySelector("#refresh-btn").setAttribute("disabled", "true");
       store.dispatch("setIsActive", true);
