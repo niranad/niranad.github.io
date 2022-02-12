@@ -1,28 +1,28 @@
-import store from "./store/index.js";
-import stateProps from "./stateProps.js";
+import store from './store/index.js'
+import stateProps from './stateProps.js'
 
-const checkbox = document.querySelector("#checkbox");
-const vsCPU = document.querySelector("#vs-cpu");
-const vsHuman = document.querySelector("#vs-human");
+const checkbox = document.querySelector('#checkbox')
+const vsCPU = document.querySelector('#vs-cpu')
+const vsHuman = document.querySelector('#vs-human')
 
-let { state: game } = store;
+let { state: game } = store
 
-let sessionData = {};
+let sessionData = {}
 
-stateProps.map((prop) => (sessionData[prop] = sessionStorage.getItem(prop)));
+stateProps.map((prop) => (sessionData[prop] = sessionStorage.getItem(prop)))
 
-let { player1, player2, player1Wins, nextTurn, xCells, isActive } = sessionData;
+let { player1, player2, player1Wins, nextTurn, xCells, isActive } = sessionData
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener('DOMContentLoaded', () => {
   if (player1 && player2) {
-    store.dispatch("setPlayer1", player1);
-    store.dispatch("setPlayer2", player2);
+    store.dispatch('setPlayer1', player1)
+    store.dispatch('setPlayer2', player2)
   } else {
-    store.dispatch("setPlayer1", "X");
-    store.dispatch("setPlayer2", "O");
+    store.dispatch('setPlayer1', 'X')
+    store.dispatch('setPlayer2', 'O')
 
-    sessionStorage.setItem("player1", game.player1);
-    sessionStorage.setItem("player2", game.player2);
+    sessionStorage.setItem('player1', game.player1)
+    sessionStorage.setItem('player2', game.player2)
   }
 
   // if player1Wins sessionStorage is populated (assumes other state including
@@ -34,28 +34,28 @@ window.addEventListener("DOMContentLoaded", () => {
       .map((prop) =>
         store.dispatch(
           `set${prop.charAt(0).toUpperCase() + prop.substring(1)}`,
-          Number(sessionData[prop])
-        )
-      );
+          Number(sessionData[prop]),
+        ),
+      )
     // else set the corresponding state data to zero
   } else {
     stateProps.slice(3, 9).map((prop) => {
       store.dispatch(
         `set${prop.charAt(0).toUpperCase() + prop.substring(1)}`,
-        0
-      );
-      sessionStorage.setItem(prop, 0);
-    });
+        0,
+      )
+      sessionStorage.setItem(prop, 0)
+    })
   }
 
   // if nextTurn sessionStorage is populated, persist its state in store
   // with sessionStorage
   if (nextTurn !== null) {
-    store.dispatch("setNextTurn", sessionData.nextTurn);
+    store.dispatch('setNextTurn', sessionData.nextTurn)
     // otherwise, set it to X
   } else {
-    store.dispatch("setNextTurn", "X");
-    sessionStorage.setItem("nextTurn", "X");
+    store.dispatch('setNextTurn', 'X')
+    sessionStorage.setItem('nextTurn', 'X')
   }
 
   // if sessionStorage for xCells or oCells is populated,
@@ -65,19 +65,19 @@ window.addEventListener("DOMContentLoaded", () => {
       for (let numChar of sessionData[prop]) {
         store.dispatch(
           `set${prop.charAt(0).toUpperCase() + prop.substring(1)}`,
-          prop === "" ? 0 : Number(numChar)
-        );
+          prop === '' ? 0 : Number(numChar),
+        )
       }
-    });
+    })
     //
   } else {
     stateProps.slice(10, 12).map((prop) => {
       store.dispatch(
         `set${prop.charAt(0).toUpperCase() + prop.substring(1)}`,
-        []
-      );
-      sessionStorage.setItem(prop, "");
-    });
+        [],
+      )
+      sessionStorage.setItem(prop, '')
+    })
   }
 
   if (isActive !== null) {
@@ -86,76 +86,76 @@ window.addEventListener("DOMContentLoaded", () => {
       .map((prop) =>
         store.dispatch(
           `set${prop.charAt(0).toUpperCase() + prop.substring(1)}`,
-          sessionData[prop]
-        )
-      );
+          sessionData[prop],
+        ),
+      )
   } else {
     stateProps.slice(12).map((prop) => {
       store.dispatch(
         `set${prop.charAt(0).toUpperCase() + prop.substring(1)}`,
-        false
-      );
-      sessionStorage.setItem(prop, false);
-    });
+        false,
+      )
+      sessionStorage.setItem(prop, false)
+    })
   }
 
-  checkbox.addEventListener("change", () => {
-    store.dispatch("setPlayer1", game.player1 === "O" ? "X" : "O");
-    store.dispatch("setPlayer2", game.player1 === "O" ? "X" : "O");
+  checkbox.addEventListener('change', () => {
+    store.dispatch('setPlayer1', game.player1 === 'O' ? 'X' : 'O')
+    store.dispatch('setPlayer2', game.player1 === 'O' ? 'X' : 'O')
 
-    sessionStorage.setItem("player1", game.player1);
-    sessionStorage.setItem("player2", game.player2);
+    sessionStorage.setItem('player1', game.player1)
+    sessionStorage.setItem('player2', game.player2)
 
-    initializeGame();
-  });
+    initializeGame()
+  })
 
-  vsCPU.addEventListener("click", () => {
-    store.dispatch("setPlayer2IsHuman", false);
-    sessionStorage.setItem("player2IsHuman", "");
+  vsCPU.addEventListener('click', () => {
+    store.dispatch('setPlayer2IsHuman', false)
+    sessionStorage.setItem('player2IsHuman', '')
 
-    initializeGame();
-  });
+    initializeGame()
+  })
 
-  vsHuman.addEventListener("click", () => {
-    store.dispatch("setPlayer2IsHuman", true);
-    sessionStorage.setItem("player2IsHuman", "true");
+  vsHuman.addEventListener('click', () => {
+    store.dispatch('setPlayer2IsHuman', true)
+    sessionStorage.setItem('player2IsHuman', 'true')
 
-    initializeGame();
-  });
+    initializeGame()
+  })
 
   function initializeGame() {
     stateProps.slice(3, 9).map((prop) => {
       store.dispatch(
         `set${prop.charAt(0).toUpperCase() + prop.substring(1)}`,
-        0
-      );
-      sessionStorage.setItem(prop, 0);
-    });
+        0,
+      )
+      sessionStorage.setItem(prop, 0)
+    })
 
-    store.dispatch("setNextTurn", "X");
-    sessionStorage.setItem("nextTurn", "X");
+    store.dispatch('setNextTurn', 'X')
+    sessionStorage.setItem('nextTurn', 'X')
 
     stateProps.slice(10, 12).map((prop) => {
       store.dispatch(
         `set${prop.charAt(0).toUpperCase() + prop.substring(1)}`,
-        0
-      );
-      sessionStorage.setItem(prop, "");
-    });
+        0,
+      )
+      sessionStorage.setItem(prop, '')
+    })
 
     stateProps.slice(12).map((prop) => {
       store.dispatch(
         `set${prop.charAt(0).toUpperCase() + prop.substring(1)}`,
-        prop === "isActive" && (game.player2IsHuman || game.player1 === "X")
+        prop === 'isActive' && (game.player2IsHuman || game.player1 === 'X')
           ? true
-          : false
-      );
+          : false,
+      )
       sessionStorage.setItem(
         prop,
-        prop === "isActive" && (game.player2IsHuman || game.player1 === "X")
-          ? "true"
-          : ""
-      );
-    });
+        prop === 'isActive' && (game.player2IsHuman || game.player1 === 'X')
+          ? 'true'
+          : '',
+      )
+    })
   }
-});
+})

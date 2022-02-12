@@ -342,6 +342,10 @@ span:nth-child(3),
     width: 350px;
   }
 
+  #versus {
+    font-size: 28px;
+  }
+
   .takes {
     margin-left: 86px;
   }
@@ -355,7 +359,7 @@ span:nth-child(3),
   }
 }
 
-@media only screen and (max-width: 520px) {
+@media only screen and (max-width: 500px) {
   #versus {
     font-size: 25px;
   }
@@ -367,6 +371,10 @@ span:nth-child(3),
   .state {
     font-size: 12px;
     padding-top: 3px;
+  }
+
+  #round-info {
+    margin-left: 127px;
   }
 }
 
@@ -432,7 +440,7 @@ span:nth-child(3),
   }
 
   #round-info {
-    margin-left: 128px;
+    margin-left: 132px;
   }
 
   .btn {
@@ -440,7 +448,7 @@ span:nth-child(3),
   }
 }
 
-@media only screen and (max-width: 355px) {
+@media only screen and (max-width: 360px) {
   #gameboard {
     grid-template-columns: repeat(3, 68px);
     grid-template-rows: repeat(5, 64px);
@@ -449,7 +457,7 @@ span:nth-child(3),
   }
 
   #versus {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .board-top {
@@ -496,6 +504,6 @@ span:nth-child(3),
   }
 
   #round-info {
-    margin-left: 72px;
+    margin-left: 75px;
   }
 }

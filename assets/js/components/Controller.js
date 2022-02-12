@@ -26,6 +26,7 @@ export default class Controller extends Component {
     const setGameOver = (lastPlayerCells) => {
       let cellsCheck = []
       let trueCount = 0
+      let matchedCells = []
 
       let currMark = document.querySelector(`#cell${store.state.currentCell}`)
         .textContent
@@ -38,6 +39,7 @@ export default class Controller extends Component {
       }
 
       const checkGameOver = (cellNumber) => {
+        matchedCells.push(cellNumber)
         cellsCheck.push(
           document.querySelector(`#cell${cellNumber}`).textContent === currMark,
         )
@@ -46,9 +48,25 @@ export default class Controller extends Component {
           if (trueCount === 3) {
             store.dispatch('setIsOver', true)
             sessionStorage.setItem('isOver', 'true')
+
+            // highlight the matched cells
+            if (game.nextTurn === 'X') {
+              matchedCells.map((num) => {
+                let cell = document.querySelector(`#cell${num}`)
+                cell.style.backgroundColor = 'rgb(255, 170, 4)'
+                cell.firstChild.style.color = 'rgba(0, 0, 5, 0.918)'
+              })
+            } else {
+              matchedCells.map((num) => {
+                let cell = document.querySelector(`#cell${num}`)
+                cell.style.backgroundColor = 'rgb(11, 214, 221)'
+                cell.firstChild.style.color = 'rgba(0, 0, 5, 0.918)'
+              })
+            }
           }
           cellsCheck = []
           trueCount = 0
+          matchedCells = []
         }
       }
 
@@ -422,42 +440,44 @@ export default class Controller extends Component {
 
     // Refresh button
     refreshBtn.addEventListener('click', () => {
-      // display "#thinking"
-      document.querySelector('#thinking').style.display = 'block'
+      if (!game.player2IsHuman) {
+        // display "#thinking"
+        document.querySelector('#thinking').style.display = 'block'
 
-      store.dispatch('setIsActive', true)
-      sessionStorage.setItem('isActive', 'true')
+        store.dispatch('setIsActive', true)
+        sessionStorage.setItem('isActive', 'true')
 
-      cells.map((id, i) => {
-        document.querySelector(`#${id}`).disabled = true
-      })
+        cells.map((id, i) => {
+          document.querySelector(`#${id}`).disabled = true
+        })
 
-      setTimeout(() => {
-        if (game.player1 === 'O') {
-          let preferredCells = [1, 3, 5, 7, 9]
-          let idx = Math.floor(Math.random() * 5)
-          let cell = document.querySelector(`#cell${preferredCells[idx]}`)
+        setTimeout(() => {
+          if (game.player1 === 'O') {
+            let preferredCells = [1, 3, 5, 7, 9]
+            let idx = Math.floor(Math.random() * 5)
+            let cell = document.querySelector(`#cell${preferredCells[idx]}`)
 
-          // enable the cell to be clicked and then click it
-          cell.disabled = false
-          cell.onclick = buttonClickEventHandler(cell, idx)
-          cell.click()
-
-          // remove "CPU is thinking"
-          document.querySelector('#thinking').style.display = 'none'
-
-          // enable the previously disabled cells
-          cells.map((id) => {
-            cell = document.querySelector(`#${id}`)
+            // enable the cell to be clicked and then click it
             cell.disabled = false
-            cell.onclick = buttonClickEventHandler(cell, id)
-          })
-        }
+            cell.onclick = buttonClickEventHandler(cell, idx)
+            cell.click()
 
-        // update isOver state in store
-        store.dispatch('setIsOver', false)
-        sessionStorage.setItem('isOver', '')
-      }, 1500)
+            // remove "CPU is thinking"
+            document.querySelector('#thinking').style.display = 'none'
+
+            // enable the previously disabled cells
+            cells.map((id) => {
+              cell = document.querySelector(`#${id}`)
+              cell.disabled = false
+              cell.onclick = buttonClickEventHandler(cell, id)
+            })
+          }
+
+          // update isOver state in store
+          store.dispatch('setIsOver', false)
+          sessionStorage.setItem('isOver', '')
+        }, 1500)
+      }
     })
   }
 }
