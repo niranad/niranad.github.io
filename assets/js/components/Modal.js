@@ -11,7 +11,7 @@ export default class Modal extends Component {
     let winnerMark = self.element.querySelector("#win-mark");
     let winText = self.element.querySelector("#win-text");
     let nextRoundBtn = self.element.querySelector("#next-round-btn");
-    let takesRoundTxt = self.element.querySelector("#takes");
+    let takesRoundTxt = self.element.querySelector(".takes");
 
     document.querySelector("#overlay").style.display = "block";
 
@@ -23,7 +23,7 @@ export default class Modal extends Component {
       winText.textContent = "DRAW!";
       takesRoundTxt.textContent = "IT'S A TIE";
       takesRoundTxt.style.color = "rgb(182, 198, 212)";
-      takesRoundTxt.style.marginRight = "100px";
+      takesRoundTxt.setAttribute("id", "round-info");
       nextRoundBtn.style.backgroundColor =
         game.player1 === "X" ? "rgb(11, 214, 221)" : "rgb(255, 170, 4)";
       
@@ -40,8 +40,8 @@ export default class Modal extends Component {
       
       nextRoundBtn.style.backgroundColor =
         game.player1 === "X" ? "rgb(11, 214, 221)" : "rgb(255, 170, 4)";
+      takesRoundTxt.removeAttribute("id");
       takesRoundTxt.style.color = "rgb(255, 170, 4)";
-      takesRoundTxt.style.marginRight = "34px";
 
       // else X won
     } else {
@@ -56,8 +56,8 @@ export default class Modal extends Component {
       
       nextRoundBtn.style.backgroundColor =
         game.player1 === "X" ? "rgb(11, 214, 221)" : "rgb(255, 170, 4)";
+      takesRoundTxt.removeAttribute("id");
       takesRoundTxt.style.color = "rgb(11, 214, 221)";
-      takesRoundTxt.style.marginRight = "38px";
     }
 
     self.element.style.display = "flex";

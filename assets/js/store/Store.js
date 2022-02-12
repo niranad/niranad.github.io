@@ -22,7 +22,6 @@ export default class Store {
     self.state = new Proxy(params.state || {}, {
       set: function (state, key, value) {
         state[key] = value;
-
         self.events.publish("stateChange", self.state);
 
         return true;

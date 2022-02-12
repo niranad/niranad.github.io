@@ -15,7 +15,7 @@ a {
 }
 
 :root {
-  --tiles-color: rgba(0, 0, 10, 0.349);
+  --tiles-color: rgba(2, 13, 36, 0.301);
 }
 
 body {
@@ -48,7 +48,7 @@ body {
 }
 
 #info {
-  font-family: "Calibri Light";
+  font-family: 'Calibri Light';
   color: rgb(197, 185, 185);
   font-size: 15px;
   margin-top: 8px;
@@ -220,6 +220,7 @@ button {
 .state {
   width: 75px;
   height: 40px;
+  padding-top: 2px;
   padding-bottom: 4px;
   font-size: 14px;
   font-weight: 600;
@@ -273,10 +274,12 @@ span:nth-child(3),
 }
 
 #modal-content {
-  width: 50%;
+  position: relative;
+  width: 550px;
   height: 65%;
   margin: auto 0;
   text-align: center;
+  border: 1px solid red;
 }
 
 #win-text {
@@ -292,21 +295,30 @@ span:nth-child(3),
   height: 50px;
   text-align: left;
   margin-bottom: 10px;
+  border: 1px solid red;
 }
 
 #win-mark {
   position: absolute;
   margin-top: 4px;
-  margin-left: 30px;
-  font-size: 36px;
+  margin-left: 154px;
+  font-size: 34px;
   font-weight: 700;
+  font-family: Verdana;
 }
 
-#takes {
+.takes {
+  position: absolute;
   font-size: 22px;
   float: right;
-  margin-top: 13px;
-  margin-right: 66px;
+  margin-top: 12.5px;
+  margin-left: 188px;
+}
+
+#round-info {
+  position: relative;
+  float: left;
+  margin-left: 225px;
 }
 
 .modal-btn {
@@ -325,4 +337,167 @@ span:nth-child(3),
 #quit-btn {
   background-color: rgb(182, 198, 212);
   margin-right: 4px;
+}
+
+@media only screen and (max-width: 550px) {
+  #modal-content {
+    width: 350px;
+  }
+
+  .takes {
+    margin-left: 86px;
+  }
+
+  #round-info {
+    margin-left: 125px;
+  }
+
+  #win-mark {
+    margin-left: 54px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  #versus {
+    font-size: 25px;
+  }
+
+  .cell span {
+    font-size: 37px;
+  }
+
+  .state {
+    font-size: 12px;
+    padding-top: 3px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #gameboard {
+    grid-template-columns: repeat(3, 72px);
+    grid-template-rows: repeat(5, 67px);
+    row-gap: 15px;
+    column-gap: 12px;
+  }
+
+  #versus {
+    font-size: 21px;
+  }
+
+  .board-top {
+    width: 72px;
+    height: 67px;
+  }
+
+  #board {
+    grid-template-columns: repeat(3, 72px);
+    grid-template-rows: repeat(3, 67px);
+  }
+
+  .cell {
+    width: 72px;
+    height: 67px;
+  }
+
+  .state {
+    width: 72px;
+  }
+
+  #modal {
+    height: 20%;
+  }
+
+  #modal-content {
+    height: 67%;
+  }
+
+  #win-text {
+    margin-bottom: 5px;
+  }
+
+  #win-state {
+    margin-top: 2px;
+    margin-bottom: 13px;
+    height: 30px;
+  }
+
+  #win-mark {
+    font-size: 30px;
+    margin-top: -2px;
+    margin-left: 68px;
+  }
+
+  .takes {
+    font-size: 19px;
+    margin-top: 6px;
+    margin-left: 96px;
+  }
+
+  #round-info {
+    margin-left: 128px;
+  }
+
+  .btn {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 355px) {
+  #gameboard {
+    grid-template-columns: repeat(3, 68px);
+    grid-template-rows: repeat(5, 64px);
+    row-gap: 13px;
+    column-gap: 8px;
+  }
+
+  #versus {
+    font-size: 18px;
+  }
+
+  .board-top {
+    width: 68px;
+    height: 64px;
+  }
+
+  #refresh-btn {
+    margin-left: 40px;
+  }
+
+  #board {
+    grid-template-columns: repeat(3, 68px);
+    grid-template-rows: repeat(5, 64px);
+    row-gap: 13px;
+    column-gap: 8px;
+  }
+
+  .cell {
+    width: 68px;
+    height: 64px;
+  }
+
+  .cell span {
+    font-size: 34px;
+  }
+
+  .state {
+    width: 68px;
+  }
+
+  #modal-content {
+    width: 220px;
+  }
+
+  #win-mark {
+    font-size: 27px;
+    margin-left: 18px;
+  }
+
+  .takes {
+    font-size: 16px;
+    margin-left: 46px;
+  }
+
+  #round-info {
+    margin-left: 72px;
+  }
 }
