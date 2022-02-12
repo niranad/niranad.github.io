@@ -279,7 +279,6 @@ span:nth-child(3),
   height: 65%;
   margin: auto 0;
   text-align: center;
-  border: 1px solid red;
 }
 
 #win-text {
@@ -295,7 +294,6 @@ span:nth-child(3),
   height: 50px;
   text-align: left;
   margin-bottom: 10px;
-  border: 1px solid red;
 }
 
 #win-mark {
