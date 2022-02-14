@@ -11,8 +11,6 @@ export default class PlayersStateInfo extends Component {
 
     let { state: game } = store
 
-    console.log(game.isWon)
-
     if (
       game.xCells.length + game.oCells.length !== 9 ||
       (game.isWon && game.xCells.length + game.oCells.length === 9)
