@@ -504,6 +504,7 @@ span:nth-child(3),
   #win-mark {
     font-size: 25px;
     margin-left: 18px;
+    margin-top: 2px;
   }
 
   .takes {
