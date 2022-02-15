@@ -103,6 +103,10 @@ textarea {
   background-color: rgb(179, 178, 178);
 }
 
+#info {
+  color: #000;
+}
+
 .new-note, .note-display {
   padding: 20px;
 }
