@@ -127,6 +127,10 @@ li {
   margin-bottom: 10px;
 }
 
+li p::selection {
+  background-color: mediumblue;
+}
+
 div {
   margin-bottom: 10px;
 }
