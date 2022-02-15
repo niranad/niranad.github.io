@@ -31,15 +31,15 @@ window.onload = function () {
 
     // }
 
-    console.log('Database setup complete')
+    alert('You are all set.')
   }
 
   request.onerror = function () {
-    console.log('Database failed to open')
+    alert('Oh sorry! Your browser device storage is not available.')
   }
 
   request.onsuccess = function (e) {
-    console.log('Database opened successfully')
+    alert('Your device storage is now open for writing.')
 
     // store the opened database object
     db = e.target.result
@@ -72,14 +72,14 @@ window.onload = function () {
 
     // report on the success of the transaction completing, when everything is done
     transaction.oncomplete = function () {
-      console.log('Transaction completed: database modification finished.')
+      alert('Note created successfully!')
 
       // update the display of data to show the newly added item
       displayData()
     }
 
     transaction.onerror = function () {
-      console.log('Transaction not opened due to error')
+      alert('Failed to create note.')
     }
   }
 
@@ -132,9 +132,6 @@ window.onload = function () {
           listItem.textContent = 'No notes stored'
           list.appendChild(listItem)
         }
-
-        // if there are no more cursor to iterate through
-        console.log('Notes all displayed')
       }
     }
   }
@@ -156,7 +153,7 @@ window.onload = function () {
       e.target.parentNode.parentNode.parentNode.removeChild(
         e.target.parentNode.parentNode,
       )
-      console.log(`Note ${noteId} deleted.`)
+      alert(`Note with id: ${noteId} deleted.`)
 
       if (!list.firstChild) {
         const listItem = document.createElement('li')
