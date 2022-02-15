@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browser IndexedDB Notes</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link href="browser-notes.css" rel="stylesheet" />
+    <script src="browser-notes.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Browser Notes</h1>
+    </header>
+
+    <main>
+      <section class="note-display">
+        <h2>Notes</h2>
+        <ul></ul>
+      </section>
+      <section class="new-note">
+        <h2>Enter a new note</h2>
+        <form>
+          <div>
+            <label for="title">Note title</label>
+            <input id="title" type="text" required />
+          </div>
+          <div id="textarea-div">
+            <label for="body">Note text</label>
+            <textarea
+              name="note"
+              id="body"
+              cols="30"
+              rows="10"
+              required
+            ></textarea>
+          </div>
+          <div id="submit-btn-div">
+            <button id="submit" title="Create a new note">Create note</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        <strong>NOTE</strong>
+        : All notes you create are stored on your browser (not an online
+        database) and only accessed and displayed anytime you visit this site.
+        The notes will be available as long as you do not clear your browser
+        storage.
+      </p>
+    </footer>
+  </body>
+</html>
